@@ -1294,7 +1294,7 @@ Look for: Do agents go through operations or manipulate raw state? How are confl
 
 **Why it's foundational:** Most software is reactive: a request arrives, the system executes code, and a response goes back. Agentic systems break this pattern. They keep working after the user closes the tab, notice new information and react, make progress on goals overnight. This shift from reactive to autonomous affects how you design, operate, and reason about the system.
 
-Autonomy is a property of your architecture, not of the model: a cron job that runs a SQL query at 3am is autonomous, while a button that calls an LLM is reactive. What matters is where control flow begins, not how intelligent the code is.
+Autonomy is a property of your architecture: a cron job that runs an LLM prompt with tool calls is autonomous, while a button that calls an LLM is reactive. What matters is where control flow begins.
 
 **What it looks like:** Internal triggers that start execution without external calls:
 ```
