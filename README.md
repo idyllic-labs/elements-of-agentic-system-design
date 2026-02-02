@@ -41,6 +41,8 @@ This repository contains the outline for **a forthcoming book**. **Interested in
 
 ## What This Framework Provides
 
+The 10 elements are indexed on **intuitive notions of intelligence**, not implementation categories. Each element is named for the behavior its code patterns produce.
+
 ### A Conceptual Map
 Defined terms for each element (context, memory, agency, etc.) and the mechanisms that implement them.
 
