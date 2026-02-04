@@ -25,6 +25,8 @@ Input → Router → Agent A → Agent B → Output
 
 Execution flow: Router decides Agent A runs first, then Agent B. Data flow: A's output is compressed into a handoff structure that B receives.
 
+![Handoff Compression](../assets/coordination-handoff-compression.png)
+
 ---
 
 ### Demystification

@@ -49,6 +49,8 @@ The **agent** is the canonical structure that emerges: a loop where the model de
 - **Merge:** Combine outputs from multiple calls into one.
 - **Loop:** Repeat until a condition is met.
 
+![The Six Primitives of Composition](../assets/reasoning-composition-primitives.png)
+
 These six operations are the primitives. The structures that emerge—pipelines, trees, DAGs, agent loops—are compositions of these primitives with code controlling the flow.
 
 ---

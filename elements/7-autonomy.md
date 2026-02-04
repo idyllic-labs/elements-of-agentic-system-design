@@ -18,6 +18,8 @@ Autonomous:  [Schedule/Event/Condition] → Reconstruct Context → Agent → Pe
 
 When an autonomous trigger fires, there's no conversation history — the agent's context must be reconstructed from stored state, and whatever happens must feed back into persistent state for continuity.
 
+![The Reconstruction Problem](../assets/autonomy-reconstruction.png)
+
 ---
 
 ### Demystification

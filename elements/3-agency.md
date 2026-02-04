@@ -15,6 +15,8 @@ The agent is not inside the model. It is the composite: model proposing, code ex
 Model output (text) → Parser/Router → Policy check → Execution → Effects
 ```
 
+![Text vs Effects](../assets/agency-text-vs-effects.png)
+
 ---
 
 ### Demystification
@@ -47,6 +49,8 @@ Tool calling standardizes three things:
 3. **Router** — One place where model intent translates into function calls
 
 The tradeoffs: constrained tools give predictable surface area (model can't invent tools), validatable input (schema checks before execution), and simple security (no `deleteAllUsers` tool means no deletion). The cost is flexibility—behavior not expressible as a sequence of tool calls requires adding new tools or multiple round-trips.
+
+![Capability = Registry](../assets/agency-capability-registry.png)
 
 #### Code Execution Is the Same Pattern
 

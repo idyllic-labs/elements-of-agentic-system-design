@@ -38,6 +38,8 @@ Quality signals approximate true performance on the dimensions you chose to meas
 
 **Same-call self-evaluation produces rationalization, not judgment.** If you ask a model to score its own output within the same prompt (e.g., "Now rate your answer 1-5"), it continues the pattern it just produced with a bias toward justifying itself. Genuine evaluation requires a separate call where the evaluator sees the task as judgment, not continuation.
 
+![Same-Call vs Separate-Call Evaluation](../assets/evaluation-separate-call.png)
+
 **Stochastic outputs require distributional thinking.** A single great run proves nothing about typical behavior. You measure distributions: mean quality, variance, worst-case. Reducing variance can be as valuable as raising the mean — a system that averages 0.85 but sometimes drops to 0.4 may be less useful than one that sits reliably at 0.8.
 
 #### What You Can Evaluate

@@ -21,6 +21,8 @@ The core design problem is not how to store everything, but how to decide what t
 
 Each structure enables different retrieval patterns. Arrays give recency and position. Maps give direct lookup by key. Vectors give semantic similarity. The storage structure determines what questions you can ask later.
 
+![Storage Structure → Query Capability](../assets/memory-storage-structures.png)
+
 ---
 
 ### Demystification
@@ -103,6 +105,8 @@ Identify how the system weighs recency, semantic similarity, and importance.
 Relevance is not one-dimensional. Recent events are vivid. Semantically similar content is topically relevant. Some facts are important regardless of age or topic match.
 
 If the system overweights recency, it responds well to the immediate conversation but may ignore long-term commitments. If it overweights importance, the same items appear frequently regardless of relevance. If it overweights semantic similarity, it stays on-topic but may omit simple facts that lack semantic hooks in the query.
+
+![Retrieval Competition](../assets/memory-retrieval-competition.png)
 
 Look for: What weights are applied? Do they vary by question type or conversation stage? What personality does the retrieval policy create?
 

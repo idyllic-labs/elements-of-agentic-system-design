@@ -12,6 +12,8 @@ Also useful for practitioners building agents on these systems, and for readers 
 
 This repository contains the outline for **a forthcoming book**. **Interested in co-authoring?** Reach out to **william@idylliclabs.com**.
 
+![The Three Layers](assets/three-layers-overview.png)
+
 ## Contents
 
 - [The 10 Elements](#the-10-elements)
@@ -38,6 +40,7 @@ This repository contains the outline for **a forthcoming book**. **Interested in
 | 8 | [**Evaluation**](elements/8-evaluation.md) | Determining whether the system succeeded | Quality signals + measurement functions |
 | 9 | [**Feedback**](elements/9-feedback.md) | Gradient signals that steer behavior | Signal sources + injection points |
 | 10 | [**Learning**](elements/10-learning.md) | Feedback that persists to change future behavior | Learnable parameters + extraction pipeline |
+
 
 ## What This Framework Provides
 
@@ -67,7 +70,11 @@ When you want to implement something smart in an agentic system, you need to kno
 
 This framework provides that map. The model is a stateless text-to-text function. Everything else (memory, agency, reasoning, coordination, learning) is architecture you build around it. Every intelligent-seeming behavior traces to concrete code: loops, database queries, schedulers, policy checks. Once you see this, agentic systems become software you design, inspect, and debug like any other program.
 
+![The Basic Agent Loop](diagrams/agent-loop.svg)
+
 ## Key Relationships
+
+![The Externalization Pattern](assets/externalization-pattern.png)
 
 A recurring **externalization pattern** appears throughout the framework:
 - **Memory** = externalized context (storage for a single agent)
@@ -78,6 +85,8 @@ A recurring **externalization pattern** appears throughout the framework:
 - **Evaluation** measures quality
 - **Feedback** steers the current task
 - **Learning** persists feedback to steer future tasks
+
+![The Improvement Stack](assets/improvement-stack.png)
 
 ## Quick Reference: Behavior → Implementation
 
