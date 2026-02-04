@@ -12,6 +12,8 @@ Also useful for practitioners building agents on these systems, and for readers 
 
 This repository contains the outline for **a forthcoming book**. **Interested in co-authoring?** Reach out to **william@idylliclabs.com**.
 
+![The Three Layers](assets/three-layers-overview.png)
+
 ## Contents
 
 - [The 10 Elements](#the-10-elements)
@@ -38,6 +40,7 @@ This repository contains the outline for **a forthcoming book**. **Interested in
 | 8 | [**Evaluation**](elements/8-evaluation.md) | Determining whether the system succeeded | Quality signals + measurement functions |
 | 9 | [**Feedback**](elements/9-feedback.md) | Gradient signals that steer behavior | Signal sources + injection points |
 | 10 | [**Learning**](elements/10-learning.md) | Feedback that persists to change future behavior | Learnable parameters + extraction pipeline |
+
 
 ## What This Framework Provides
 
@@ -67,7 +70,11 @@ When you want to implement something smart in an agentic system, you need to kno
 
 This framework provides that map. The model is a stateless text-to-text function. Everything else (memory, agency, reasoning, coordination, learning) is architecture you build around it. Every intelligent-seeming behavior traces to concrete code: loops, database queries, schedulers, policy checks. Once you see this, agentic systems become software you design, inspect, and debug like any other program.
 
+![The Basic Agent Loop](diagrams/agent-loop.svg)
+
 ## Key Relationships
+
+![The Externalization Pattern](assets/externalization-pattern.png)
 
 A recurring **externalization pattern** appears throughout the framework:
 - **Memory** = externalized context (storage for a single agent)
@@ -78,6 +85,8 @@ A recurring **externalization pattern** appears throughout the framework:
 - **Evaluation** measures quality
 - **Feedback** steers the current task
 - **Learning** persists feedback to steer future tasks
+
+![The Improvement Stack](assets/improvement-stack.png)
 
 ## Quick Reference: Behavior → Implementation
 
@@ -248,6 +257,8 @@ Whatever appears in this assembled context is the model's entire universe for th
 
 **Continuity is reconstruction, not persistence.** On every turn, your system assembles a fresh context from stored artifacts and sends it to the model. The model role-plays having whatever history you included. The AI you experience is precisely the context you construct.
 
+![Continuity is an Illusion](../assets/context-continuity-illusion.png)
+
 **Most "model failures" are reconstruction failures.** When the agent "forgets" something, the information was missing from context. When it hallucinates, the context lacked grounding facts. When behavior is inconsistent, the assembled context was different. The model did exactly what it always does—reason over the text you provided. The text was wrong.
 
 #### System Prompt Precedence
@@ -382,6 +393,8 @@ The core design problem is not how to store everything, but how to decide what t
 
 Each structure enables different retrieval patterns. Arrays give recency and position. Maps give direct lookup by key. Vectors give semantic similarity. The storage structure determines what questions you can ask later.
 
+![Storage Structure → Query Capability](../assets/memory-storage-structures.png)
+
 ---
 
 ### Demystification
@@ -465,6 +478,8 @@ Relevance is not one-dimensional. Recent events are vivid. Semantically similar 
 
 If the system overweights recency, it responds well to the immediate conversation but may ignore long-term commitments. If it overweights importance, the same items appear frequently regardless of relevance. If it overweights semantic similarity, it stays on-topic but may omit simple facts that lack semantic hooks in the query.
 
+![Retrieval Competition](../assets/memory-retrieval-competition.png)
+
 Look for: What weights are applied? Do they vary by question type or conversation stage? What personality does the retrieval policy create?
 
 **4. What gets forgotten and how?**
@@ -535,6 +550,8 @@ The agent is not inside the model. It is the composite: model proposing, code ex
 Model output (text) → Parser/Router → Policy check → Execution → Effects
 ```
 
+![Text vs Effects](../assets/agency-text-vs-effects.png)
+
 ---
 
 ### Demystification
@@ -567,6 +584,8 @@ Tool calling standardizes three things:
 3. **Router** — One place where model intent translates into function calls
 
 The tradeoffs: constrained tools give predictable surface area (model can't invent tools), validatable input (schema checks before execution), and simple security (no `deleteAllUsers` tool means no deletion). The cost is flexibility—behavior not expressible as a sequence of tool calls requires adding new tools or multiple round-trips.
+
+![Capability = Registry](../assets/agency-capability-registry.png)
 
 #### Code Execution Is the Same Pattern
 
@@ -740,6 +759,8 @@ The **agent** is the canonical structure that emerges: a loop where the model de
 - **Merge:** Combine outputs from multiple calls into one.
 - **Loop:** Repeat until a condition is met.
 
+![The Six Primitives of Composition](../assets/reasoning-composition-primitives.png)
+
 These six operations are the primitives. The structures that emerge—pipelines, trees, DAGs, agent loops—are compositions of these primitives with code controlling the flow.
 
 ---
@@ -900,6 +921,8 @@ Input → Router → Agent A → Agent B → Output
 ```
 
 Execution flow: Router decides Agent A runs first, then Agent B. Data flow: A's output is compressed into a handoff structure that B receives.
+
+![Handoff Compression](../assets/coordination-handoff-compression.png)
 
 ---
 
@@ -1140,6 +1163,8 @@ Agents don't message each other directly — they read the artifact's current st
 
 **Lifecycle gates valid transitions.** Artifacts move through states: draft → review → final. The lifecycle determines which operations are valid at each stage. You can't edit a published document. You can't merge an unapproved PR.
 
+![Lifecycle Gatekeeper](../assets/artifacts-lifecycle-gatekeeper.png)
+
 #### The Core Distinction: Files vs. Typed Objects
 
 Artifacts can be implemented using two common approaches:
@@ -1303,6 +1328,8 @@ Autonomous:  [Schedule/Event/Condition] → Reconstruct Context → Agent → Pe
 ```
 
 When an autonomous trigger fires, there's no conversation history — the agent's context must be reconstructed from stored state, and whatever happens must feed back into persistent state for continuity.
+
+![The Reconstruction Problem](../assets/autonomy-reconstruction.png)
 
 ---
 
@@ -1478,6 +1505,8 @@ Quality signals approximate true performance on the dimensions you chose to meas
 
 **Same-call self-evaluation produces rationalization, not judgment.** If you ask a model to score its own output within the same prompt (e.g., "Now rate your answer 1-5"), it continues the pattern it just produced with a bias toward justifying itself. Genuine evaluation requires a separate call where the evaluator sees the task as judgment, not continuation.
 
+![Same-Call vs Separate-Call Evaluation](../assets/evaluation-separate-call.png)
+
 **Stochastic outputs require distributional thinking.** A single great run proves nothing about typical behavior. You measure distributions: mean quality, variance, worst-case. Reducing variance can be as valuable as raising the mean — a system that averages 0.85 but sometimes drops to 0.4 may be less useful than one that sits reliably at 0.8.
 
 #### What You Can Evaluate
@@ -1649,6 +1678,8 @@ The feedback signal tells the system what's wrong and how to correct. Without it
 
 **Vague signals steer poorly.** "This could be better" or "Score: 6/10" doesn't tell the model what to change. Without specific, located, actionable information, the model guesses — and often guesses wrong or changes nothing meaningful.
 
+![Why Some Agents Converge and Others Don't](../assets/feedback-convergence.png)
+
 **Feedback only affects behavior when injected into context.** A quality score that's logged but not fed back into the next prompt changes nothing. The signal must appear where the model can act on it.
 
 ---
@@ -1817,6 +1848,8 @@ The model doesn't learn. The system learns by changing the learnable parameters 
 #### The Core Mechanism
 
 **The model is frozen; the wrapper learns.** The base model doesn't change between calls. All improvement comes from changing what surrounds it: the prompts it receives, the examples it sees, the routing that selects which prompt to use, the knowledge retrieved into context.
+
+![Immutable Model Weights](../assets/learning-immutable-weights.png)
 
 **Learning = feedback + persistence + reconstruction.** Feedback tells you what went right or wrong on a task. Learning stores that information and reconstructs it into future contexts so the system behaves differently next time.
 
