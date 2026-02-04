@@ -12,6 +12,8 @@ Also useful for practitioners building agents on these systems, and for readers 
 
 This repository contains the outline for **a forthcoming book**. **Interested in co-authoring?** Reach out to **william@idylliclabs.com**.
 
+![The Three Layers](assets/three-layers-overview.png)
+
 ## Contents
 
 - [The 10 Elements](#the-10-elements)
@@ -26,8 +28,6 @@ This repository contains the outline for **a forthcoming book**. **Interested in
 
 ## The 10 Elements
 
-![The 10 Elements Map](diagrams/elements-map.svg)
-
 | # | Element | What it is | Where capability lives |
 |---|---------|------------|------------------------|
 | 1 | [**Context**](elements/1-context.md) | Information available to the model for a single call | Token budget + context construction |
@@ -41,7 +41,6 @@ This repository contains the outline for **a forthcoming book**. **Interested in
 | 9 | [**Feedback**](elements/9-feedback.md) | Gradient signals that steer behavior | Signal sources + injection points |
 | 10 | [**Learning**](elements/10-learning.md) | Feedback that persists to change future behavior | Learnable parameters + extraction pipeline |
 
-![The Three Layers](assets/three-layers-overview.png)
 
 ## What This Framework Provides
 
