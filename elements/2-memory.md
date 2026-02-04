@@ -21,6 +21,8 @@ The core design problem is not how to store everything, but how to decide what t
 
 Each structure enables different retrieval patterns. Arrays give recency and position. Maps give direct lookup by key. Vectors give semantic similarity. The storage structure determines what questions you can ask later.
 
+![Storage Structure → Query Capability](../assets/memory-storage-structures.png)
+
 ---
 
 ### Demystification

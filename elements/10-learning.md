@@ -47,6 +47,8 @@ The model doesn't learn. The system learns by changing the learnable parameters 
 
 **The model is frozen; the wrapper learns.** The base model doesn't change between calls. All improvement comes from changing what surrounds it: the prompts it receives, the examples it sees, the routing that selects which prompt to use, the knowledge retrieved into context.
 
+![Immutable Model Weights](../assets/learning-immutable-weights.png)
+
 **Learning = feedback + persistence + reconstruction.** Feedback tells you what went right or wrong on a task. Learning stores that information and reconstructs it into future contexts so the system behaves differently next time.
 
 **Learnable parameters are the configuration points.** Just like neural network weights are the learnable parameters of a model, agentic systems have their own learnable parameters:

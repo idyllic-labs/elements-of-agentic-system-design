@@ -15,6 +15,8 @@ The agent is not inside the model. It is the composite: model proposing, code ex
 Model output (text) → Parser/Router → Policy check → Execution → Effects
 ```
 
+![Text vs Effects](../assets/agency-text-vs-effects.png)
+
 ---
 
 ### Demystification

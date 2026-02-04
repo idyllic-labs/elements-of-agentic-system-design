@@ -50,6 +50,8 @@ The feedback signal tells the system what's wrong and how to correct. Without it
 
 **Vague signals steer poorly.** "This could be better" or "Score: 6/10" doesn't tell the model what to change. Without specific, located, actionable information, the model guesses — and often guesses wrong or changes nothing meaningful.
 
+![Why Some Agents Converge and Others Don't](../assets/feedback-convergence.png)
+
 **Feedback only affects behavior when injected into context.** A quality score that's logged but not fed back into the next prompt changes nothing. The signal must appear where the model can act on it.
 
 ---
