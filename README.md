@@ -86,6 +86,8 @@ A recurring **externalization pattern** appears throughout the framework:
 - **Feedback** steers the current task
 - **Learning** persists feedback to steer future tasks
 
+![The Improvement Stack](assets/improvement-stack.png)
+
 ## Quick Reference: Behavior → Implementation
 
 Each behavior in the left column corresponds to a concrete implementation pattern in the right column.

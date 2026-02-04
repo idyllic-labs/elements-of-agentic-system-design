@@ -106,6 +106,8 @@ Relevance is not one-dimensional. Recent events are vivid. Semantically similar 
 
 If the system overweights recency, it responds well to the immediate conversation but may ignore long-term commitments. If it overweights importance, the same items appear frequently regardless of relevance. If it overweights semantic similarity, it stays on-topic but may omit simple facts that lack semantic hooks in the query.
 
+![Retrieval Competition](../assets/memory-retrieval-competition.png)
+
 Look for: What weights are applied? Do they vary by question type or conversation stage? What personality does the retrieval policy create?
 
 **4. What gets forgotten and how?**

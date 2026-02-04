@@ -47,6 +47,8 @@ Agents don't message each other directly — they read the artifact's current st
 
 **Lifecycle gates valid transitions.** Artifacts move through states: draft → review → final. The lifecycle determines which operations are valid at each stage. You can't edit a published document. You can't merge an unapproved PR.
 
+![Lifecycle Gatekeeper](../assets/artifacts-lifecycle-gatekeeper.png)
+
 #### The Core Distinction: Files vs. Typed Objects
 
 Artifacts can be implemented using two common approaches:

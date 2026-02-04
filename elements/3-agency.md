@@ -50,6 +50,8 @@ Tool calling standardizes three things:
 
 The tradeoffs: constrained tools give predictable surface area (model can't invent tools), validatable input (schema checks before execution), and simple security (no `deleteAllUsers` tool means no deletion). The cost is flexibility—behavior not expressible as a sequence of tool calls requires adding new tools or multiple round-trips.
 
+![Capability = Registry](../assets/agency-capability-registry.png)
+
 #### Code Execution Is the Same Pattern
 
 When a model writes code instead of selecting from tools, it appears qualitatively different. Mechanistically, nothing fundamental has changed. The model outputs text that happens to be code; your sandbox decides whether to run it, under what constraints, and with what capabilities exposed.
