@@ -39,6 +39,8 @@ Whatever appears in this assembled context is the model's entire universe for th
 
 **Continuity is reconstruction, not persistence.** On every turn, your system assembles a fresh context from stored artifacts and sends it to the model. The model role-plays having whatever history you included. The AI you experience is precisely the context you construct.
 
+![Continuity is an Illusion](../assets/context-continuity-illusion.png)
+
 **Most "model failures" are reconstruction failures.** When the agent "forgets" something, the information was missing from context. When it hallucinates, the context lacked grounding facts. When behavior is inconsistent, the assembled context was different. The model did exactly what it always does—reason over the text you provided. The text was wrong.
 
 #### System Prompt Precedence
