@@ -59,6 +59,8 @@ These six operations are the primitives. The structures that emerge—pipelines,
 
 #### The Grammar of Composition
 
+![Patterns of Call Composition](../assets/patterns-of-call-composition.png)
+
 **Sequence** — Output of one call feeds the next:
 ```
 Call A → Result A → Call B (using Result A) → Result B

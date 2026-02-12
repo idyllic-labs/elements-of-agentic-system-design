@@ -124,7 +124,11 @@ Timing options:
 
 Evaluation has costs: human time, LLM tokens, compute, latency. Comprehensive evaluation of every output is usually impractical.
 
-Common approach is layered evaluation: cheap deterministic checks filter obvious failures, model-based evaluation handles the middle, human review reserved for edge cases and calibration. The mix depends on stakes—a typo in a draft is different from an error in production code.
+Common approach is layered evaluation: cheap deterministic checks filter obvious failures, model-based evaluation handles the middle, human review reserved for edge cases and calibration.
+
+![Layered Evaluation](../assets/layered-evaluation.png)
+
+The mix depends on stakes—a typo in a draft is different from an error in production code.
 
 Look for: What triggers evaluation? What decisions depend on results? Is there production monitoring? How is evaluation cost managed relative to the value of catching errors?
 

@@ -47,6 +47,8 @@ Execution flow: Router decides Agent A runs first, then Agent B. Data flow: A's 
 
 **Coordination has two dimensions: execution flow and data flow.**
 
+![Two Dimensions of Coordination](../assets/coordination-2-dimensions.png)
+
 - **Execution flow:** What triggers what. Who decides the next step. What runs in parallel vs. sequential. This is the control structure.
 - **Data flow:** How information passes between reasoning structures. What context transfers on handoff. What shared state exists. This is the information structure.
 
@@ -75,6 +77,8 @@ Execution flow: Router decides Agent A runs first, then Agent B. Data flow: A's 
 ### Design Considerations
 
 #### Coordination Patterns
+
+![Coordination Topologies](../assets/coordination-topologies.png)
 
 **Routing** — Classify and dispatch:
 ```

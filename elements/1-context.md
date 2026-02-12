@@ -41,6 +41,8 @@ Whatever appears in this assembled context is the model's entire universe for th
 
 ![Continuity is an Illusion](../assets/context-continuity-illusion.png)
 
+![Continuity is Reconstruction](../assets/continuity-is-reconstruction.png)
+
 **Most "model failures" are reconstruction failures.** When the agent "forgets" something, the information was missing from context. When it hallucinates, the context lacked grounding facts. When behavior is inconsistent, the assembled context was different. The model did exactly what it always does—reason over the text you provided. The text was wrong.
 
 #### System Prompt Precedence
@@ -61,6 +63,8 @@ Context does not need to be perfectly formatted prose. Models handle incomplete 
 
 #### The Economics of Attention
 
+![Economics of Attention](../assets/economimcs-of-attention.png)
+
 **Bigger windows aren't automatically better.** Attention is roughly O(n²) in sequence length—double the tokens, quadruple the computation. This shows up as latency.
 
 **Quality vs quantity tradeoff.** Every irrelevant token competes with relevant ones for attention. A carefully curated 2,000-token context often yields better results than a noisy 16,000-token one. Signal-to-noise ratio matters more than raw size.
@@ -68,6 +72,8 @@ Context does not need to be perfectly formatted prose. Models handle incomplete 
 **"Lost in the middle."** Empirically, tokens in the middle of very long sequences receive less effective attention than tokens at the beginning or end. Critical information should go at the start or end of context, not buried in the middle.
 
 #### Working Beyond Context Limits
+
+![Working Beyond Context Limits](../assets/working-beyond-context-limits.png)
 
 When tasks exceed any single context window:
 

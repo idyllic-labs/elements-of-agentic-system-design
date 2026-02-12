@@ -41,6 +41,8 @@ Model output (text) → Parser/Router → Policy check → Execution → Effects
 
 #### Tool Calling Is Structured Output with Routing
 
+![Tool Calls Are Decisions](../assets/tool-calls-are-decisions.png)
+
 When you enable "tool calling" or "function calling," the model's output changes shape—from prose to structured JSON naming tools and passing arguments. Mechanistically, nothing about the model has changed. It still only emits text. The difference is that you treat some of that text as structured JSON that your code parses and routes to specific functions.
 
 Tool calling standardizes three things:
@@ -61,6 +63,8 @@ If code is never executed, it causes no effects. If it runs in a sandbox without
 Within a constrained sandbox, a single call can express loops, conditionals, and data transformations without tool round-trips. But bugs become runtime errors, security mistakes in sandbox configuration can expose unintended capability, and observability is harder than with clean tool logs.
 
 #### Agency Is a System Property
+
+![Agency Is a System Property](../assets/agency-is-system-property.png)
 
 The agent is the entire loop: model deciding, code executing, results feeding back. Remove any piece and you get something different:
 
@@ -117,6 +121,8 @@ Look for: Where exactly does text become effect? Is that boundary explicit or sc
 **3. How are effects classified?**
 
 Identify the effect categories and how scrutiny maps to stakes.
+
+![Effect Classification](../assets/effect-classification.png)
 
 - **Read:** Fetches data, no state change. Usually auto-approved.
 - **Write:** Modifies internal state. Logged, may require soft confirmation.

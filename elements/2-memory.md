@@ -45,6 +45,8 @@ Each structure enables different retrieval patterns. Arrays give recency and pos
 
 **No matter what memory system you build—databases, vector stores, knowledge graphs, file systems—it only affects model behavior by becoming text in the context window.** This is the fundamental constraint. Memory does not flow into the model through any other channel. The model sees text; memory systems produce text. Everything else is plumbing to decide which text.
 
+![Memory Becomes a String in Context](../assets/memory-becomes-string-in-context.png)
+
 You store data in whatever format is convenient—JSON, prose, triplets. When building context, you serialize it to text. The model reads that text and interprets its meaning. The understanding happens at read time, inside the model, not in your storage.
 
 **Models tolerate imperfect, fragmented input.** Retrieved chunks do not need to be perfectly formatted prose. They can be incomplete sentences, raw JSON, log fragments, or bullet points a human would struggle to parse. As long as enough signal is present, the model reconstructs meaning from noisy, partial data. This is why RAG works with arbitrarily chunked documents, why you can include some irrelevant context without catastrophic failure, and why you don't need to obsess over perfect curation. The model is robust to messy retrieval—it fills gaps and makes sense of fragments.
@@ -52,6 +54,8 @@ You store data in whatever format is convenient—JSON, prose, triplets. When bu
 **You can reconstruct useful context text from compact storage representations.** Storage format does not need to match context format. You can store structured JSON and serialize it; the model handles JSON fine. You can store triplets and convert them to sentences. The representation that's efficient for storage need not be the one optimal for the model—you transform at retrieval time.
 
 #### How Vector Stores Work
+
+![How Vector Stores Work](../assets/how-vector-stores-work.png)
 
 Vector stores convert text into numerical representations called embeddings. An embedding model transforms a sentence into a high-dimensional vector—a point in space. Sentences with similar meanings end up near each other.
 
@@ -133,6 +137,8 @@ Semantic similarity fails on:
 - **Homonyms:** "Jaguar" blends animal, car, and OS senses
 
 Structural gaps: You can only retrieve what you indexed for. If you only stored by position, you cannot query by meaning. If you only embedded content, you cannot query by recency efficiently.
+
+![Where Semantic Search Fails](../assets/where-semantic-search-fails.png)
 
 Look for: What queries does the current structure fail on? What complementary retrieval paths are needed?
 

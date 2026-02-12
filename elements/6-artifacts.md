@@ -21,6 +21,8 @@ Agent C ─┘    ↓               └─ Agent C
 
 Agents don't message each other directly — they read the artifact's current state, perform operations, and write updates. The artifact is the coordination surface.
 
+![Artifacts vs Direct Messaging](../assets/artifacts-vs-direct-messaging.png)
+
 ---
 
 ### Demystification
@@ -50,6 +52,8 @@ Agents don't message each other directly — they read the artifact's current st
 ![Lifecycle Gatekeeper](../assets/artifacts-lifecycle-gatekeeper.png)
 
 #### The Core Distinction: Files vs. Typed Objects
+
+![Files vs Typed Objects](../assets/files-vs-typed-objects.png)
 
 Artifacts can be implemented using two common approaches:
 
