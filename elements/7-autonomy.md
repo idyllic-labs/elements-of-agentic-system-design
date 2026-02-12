@@ -10,6 +10,8 @@
 
 Autonomy is a property of your architecture: a cron job that runs an LLM prompt with tool calls is autonomous, while a button that calls an LLM is reactive. What matters is where control flow begins.
 
+![Where Does Execution Start?](../assets/where-does-execution-start.png)
+
 **What it looks like:** Internal triggers that start execution without external calls:
 ```
 Reactive:    User Request → Agent → Response
@@ -111,9 +113,13 @@ Identify how autonomous activity relates to persistent state and user-facing ses
 
 Look for: how continuity is maintained and what the user sees when they return.
 
+![Reconciling Two Modes](../assets/reconciling-two-modes.png)
+
 **6. What boundaries constrain autonomous execution?**
 
 Identify limits on what the system can do without human involvement.
+
+![Constraining Autonomy](../assets/constraining-autonomy.png)
 
 - **Scope:** What actions are allowed autonomously vs. require human approval
 - **Cost:** Token budgets, API call limits, resource caps
